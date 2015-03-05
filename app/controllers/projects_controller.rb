@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-	  @projects = Projects.find(params[:id])
+	  @project = Project.find(params[:id])
   end
 
 
@@ -25,19 +25,28 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project =Project.find(params[:id])
+  end
+
   def update
   	@project =Project.find(params[:id])
+    if @project.update_attributes(project_params)
+    redirect_to project_path(@project)
+      else
+      render :edit
+    end 
   end
 
   def destroy
   	@project =Project.find(params[:id])
   	@project.destroy
-  	redirect_to project_path
+  	redirect_to projects_path
   end
 
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, rewards_attributes: [:amount, :description, :_destroy])
+    params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date, rewards_attributes: [:amount, :description, :_destroy])
   end
 end

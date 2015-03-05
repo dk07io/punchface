@@ -1,10 +1,11 @@
 <h1>Project</h1>
-<div class="project_list">
-<ul>
-	<li><% @projects.each do |project|  %></li>
+<div class="">
+<ul><% @projects.each do |project| %>
 		<li>Project Name: <%= project.name %></li>
-		<li>Project Description: <%= project.description %>
-		<li>Project Price: <%= project.funding_goal %></li>
-		<li class="project_end"><%= link_to "See project", project_path(project) %></li>
-	<% end %></ul>
+		<li>Project Description: <%= project.description %></li>
+    <li>Funding Goal: <%= project.funding_goal %></li>
+    <li>Project Start Date: <%= project.start_date %></li>
+    <li>Project Finish Date: <%= project.end_date %></li>
+	   <%= link_to "See project", project_path(project) %>
+    <% end %></ul>
 </div>

@@ -33,7 +33,7 @@ Project.create!(
 Project.create!(
   :name => "Bunchy",
   :description => "Bunchy is any amazing product.",
-  :funding_goal => 15124136000,
+  :funding_goal => 15124,
   :start_date => "22/33/44",
   :end_date => "22/33/22"
   )
