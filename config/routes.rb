@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #get 'user_sessions/destroy'
 
   #resources :users
-
+  resources :rewards
   resources :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
