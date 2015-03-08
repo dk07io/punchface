@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #get 'user_sessions/destroy'
 
   #resources :users
+  resources :pledges
   resources :rewards
   resources :projects
 

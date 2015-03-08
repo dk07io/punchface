@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+/*  navigation global */
+.wrap {}
+.login {float: right }
+#header.h1 {color: white;}
+#header {background-color: #a4a4a4, }
