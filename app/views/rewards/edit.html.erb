@@ -1,0 +1,18 @@
+<h1>Edit <%= @reward.amount %></h1>
+
+<%= form_for @reward do |l| %> 
+  <div class="field">
+    <div><%= l.label :pledge_limit %></div>
+    <%= l.text_field :pledge_limit %> <br>
+  </div>
+  <div class="field">
+    <div><%= l.label :description %></div>
+    <%= l.text_area :description %> <br>
+  </div>
+
+  <div class="action">
+    <%= l.submit %>
+  </div>
+  <% end %>
+
+  <%= link_to "Back", reward_path(@reward) %>

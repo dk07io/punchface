@@ -1,1 +1,10 @@
 <h1>This is where you can see all index of rewards!</h1>
+
+<ul>
+<% @rewards.each do |reward| %>
+  <li><%= reward.pledge_limit %></li>
+  <li><%= reward.description %></li>
+  <%= link_to "See Reward", reward_path(reward) %>
+  <%end%>
+</ul>
+
