@@ -4,26 +4,27 @@ class PledgesController < ApplicationController
  #    @pledges = Pledge.all
  #  end
 
-#show all pledges for this pledge
-  def show
-    @pledge = Pledge.find(params[:id])
-  end
+# #show all pledges for this pledge
+#   def show
+#     @pledge = Pledge.find(params[:id])
+#   end
 
-#create a pledge for this pledge
+# #create a pledge for this pledge
   def new
     @pledge = Pledge.new
   end
 
 #save the newly created pledge for this pledge
   def create
-    @pledge = Pledge.new(pledge_params)
+    @reward = Reward.find params[:reward_id]
+    @project = @reward.project
 
-    if @pledge.save
-      redirect_to pledges_url, notice: "You have now made a pledge!"
-    else
-      flash[:alert] = @pledge.errors.full_messages.to_sentence
-      render 'new'
+    @pledge = @project.pledges.new(user: current_user, reward: @reward, amount: @reward.amount)
+
+    unless @pledge.save
+      flash[:alert] = "STAHP! <img src='http://cdn0.dailydot.com/uploaded/images/original/2012/10/8/dekD4.gif'>".html_safe
     end
+    redirect_to project_path(@project)
   end
 
 #can't edit a donor pledge
