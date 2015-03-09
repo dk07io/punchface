@@ -1,0 +1,15 @@
+<div class = "nested-fields">
+  <h4>A Reward</h4>  
+  <div class = "field">
+    <%= f.label :pledge_limit %>
+    <%= f.text_field :pledge_limit %>
+  </div>
+  
+  <div class = "field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <%= link_to_remove_association "remove task", f %>
+
+</div>  

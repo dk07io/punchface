@@ -13,7 +13,8 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    3.times { @project.rewards.build }
+    # Don't need the code below anymore due to cocoon gem!
+    # 3.times { @project.rewards.build } 
   end
 
   def create
@@ -48,6 +49,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date, rewards_attributes: [:pledge_limit, :description], pledges_attributes: [:amount])
+    params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date, rewards_attributes: [:pledge_limit, :description, :_destroy], pledges_attributes: [:amount])
   end
 end

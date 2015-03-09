@@ -1,2 +1,44 @@
 <h1>Add a Project</h1>
-<%= render 'form' %> 
+
+<%= form_for @project do |l| %> 
+  <div class="field">
+    <div><%= l.label :name %></div>
+    <%= l.text_field :name %> <br>
+  </div>
+  <div class="field">
+    <div><%= l.label :description %></div>
+    <%= l.text_area :description %> <br>
+  </div>
+  <div class="field">
+    <div><%= l.label :funding_goal %></div>
+    <%= l.text_field :funding_goal %> <br>
+  </div>
+  <div class="field">
+    <div><%= l.label :start_date %></div>
+    <%= l.date_select :start_date %><br>
+  </div>
+    <div class="field">
+    <div><%= l.label :end_date %></div>
+    <%= l.date_select :end_date %><br>
+  </div>
+
+<!-- Adding a nested Rewards form. It's possible through the associations made between projects and rewards -->
+
+  <h1>Add Rewards</h1>
+  <div id= "rewards">
+    <%= l.fields_for :rewards do |reward_fields| %>
+      <%= render 'reward_fields', f: reward_fields %>
+    <% end %>
+  
+    <div class = "links">
+      <%= link_to_add_association 'add reward', l, :rewards %>
+    </div>
+
+  </div>
+    <!-- when time add a picture -->
+
+    
+  <%= l.submit %>
+    
+  <% end %>
+ 
