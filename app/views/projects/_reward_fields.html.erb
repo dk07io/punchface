@@ -1,19 +1,19 @@
 <div class = "nested-fields">
-  <h4>A Reward</h4>  
   <div class = "field">
     <%= f.label :amount %>
-    <%= f.text_field :amount  %>
-  </div>
-  
-  <div class = "field">
-    <%= f.label :pledge_limit %>
-    <%= f.text_field :pledge_limit %>
+    <%= f.text_field :amount, :placeholder => "amount they give"  %>
   </div>
   
   <div class = "field">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :placeholder => "what they get" %>
   </div>
+  <p></p>
+    <div class = "field">
+    <%= f.label :pledge_limit %>
+    <%= f.text_field :pledge_limit, :placeholder => "number of pledgers" %>
+  </div>
+  
 
   <%= link_to_remove_association "remove task", f %>
 

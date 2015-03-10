@@ -1,20 +1,16 @@
 <h1><%= @project.name %></h1>
 <div class="project_list">
+  <div class="project_individual_photo"></div>
   <table>
-  <tr><td>Project Name: </td><td><%= @project.description %></td></tr>
   <tr><td>Description: </td><td><%= @project.description %></td></tr>
   <tr><td>Funding Goal: </td><td><%= @project.funding_goal %></td></tr>
   <tr><td>End Date: </td><td><%= @project.end_date %></td></tr>
   <tr><td>Total Pledges: </td><td><%= number_to_currency @project.total_pledged %></td></tr>
-  </table>
-
-
-   <div><%= link_to "Back", projects_path %>
-  <div> <%= link_to "Edit" , edit_project_url(@project) %></div>
-  <div> <%= link_to "Delete" , @project, method: :delete, data: {confirm:"Are you sure?"}%></div>
-
-</div>  
+  </table>  
 
 <%= render @project.rewards %>
 
 
+  <div>
+   <%= link_to "Back", projects_path %>  |   <%= link_to "Edit" , edit_project_url(@project) %>  |  <%= link_to "Delete" , @project, method: :delete, data: {confirm:"Are you sure?"}%>
+   </div>

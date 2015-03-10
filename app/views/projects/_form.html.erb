@@ -10,7 +10,8 @@
   </div>
   <div class="field">
     <div><%= l.label :funding_goal %></div>
-    <%= l.text_field :funding_goal %> <br>
+    <%= l.text_field :funding_goal, :placeholder => "eg. 1000" %> <br>
+    <!--:input_html => { :value => 'eg. 1000' } -->
   </div>
   <div class="field">
     <div><%= l.label :start_date %></div>
