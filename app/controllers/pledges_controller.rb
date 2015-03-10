@@ -21,8 +21,8 @@ class PledgesController < ApplicationController
 
     @pledge = @project.pledges.new(user: current_user, reward: @reward, amount: @reward.amount)
 
-    unless @pledge.save
-      flash[:alert] = "Your pledge saved. Your are now the proud contributor to <%=@project.name %>. <img src='http://placehold.it/250/ffffff/000000'>".html_safe
+    if @pledge.save
+      flash[:alert] = "Your pledge saved. Your are now a contributor!"
     end
     redirect_to project_path(@project)
   end
