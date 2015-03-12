@@ -22,7 +22,7 @@ class PledgesController < ApplicationController
     @pledge = @project.pledges.new(user: current_user, reward: @reward, amount: @reward.amount)
 
     unless @pledge.save
-      flash[:alert] = "STAHP! <img src='http://cdn0.dailydot.com/uploaded/images/original/2012/10/8/dekD4.gif'>".html_safe
+      flash[:alert] = "Sorry! Pledge limit reached."
     end
     redirect_to project_path(@project)
   end

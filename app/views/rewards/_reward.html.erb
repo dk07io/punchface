@@ -1,8 +1,10 @@
 <p>
-For <%= number_to_currency reward.amount %>, you get: <%= reward.description %>! (<%= reward.remaining %> remaining)
-<%= form_tag pledges_path do %>
-  <%= hidden_field_tag "reward_id", reward.id %> 
-  <%= submit_tag "Pledge" %>
-<% end %>
-
+  For <%= number_to_currency reward.amount %>, 
+  you get: <%= reward.description %>! 
+  (<%= reward.remaining %> remaining)
+  
+  <%= form_tag pledges_path do %>
+    <%= hidden_field_tag "reward_id", reward.id %> 
+    <%= submit_tag "Pledge" %>
+  <% end %>
 </p>

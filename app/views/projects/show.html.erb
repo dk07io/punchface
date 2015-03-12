@@ -9,7 +9,6 @@
    <div><%= link_to "Back", projects_path %>
   <div> <%= link_to "Edit" , edit_project_url(@project) %></div>
   <div> <%= link_to "Delete" , @project, method: :delete, data: {confirm:"Are you sure?"}%></div>
-    <div> <%= link_to "Make a Pledge" , new_pledge_path %></div>
 
   <!--removed alligator example of nested
    link_to "Edit" , edit_restaurant_reservation_url(@restaurant, reservation) 
@@ -17,4 +16,14 @@
 
 </div>  
 
+<!-- The code below is equivalent. Need to add alligator tags -->
 <%= render @project.rewards %>
+
+
+<!-- render partial: "rewards/reward", collection: @project.rewards -->
+
+
+<!--  @project.rewards.each do |reward| 
+   render partial: 'rewards/reward', locals: {reward: reward} 
+ end 
+ -->

@@ -3,7 +3,14 @@ class ProjectsController < ApplicationController
   # load_and_authorize_resource
 
   def index
-    @projects = Project.all
+    # Storing arrays into @projects
+    @projects = if params[:search]
+      # The code below will produce the same results
+      # Project.where("name ILIKE?", "%#{params[:search]}%")
+      Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    else
+      Project.all
+    end
   end
 
   def show
