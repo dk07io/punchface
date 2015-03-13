@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
   # accepts_nested_attributes_for :pledges
   belongs_to :user
+  has_many :comments
 
 
   def total_pledged

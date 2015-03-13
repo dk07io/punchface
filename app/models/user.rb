@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   has_many :pledges
   has_many :rewards
   has_many :backed_projects, through: :pledges, class_name:'Project'
+  has_many :comments
 end
