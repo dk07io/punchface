@@ -1,0 +1,8 @@
+  <div>
+    <p>Project Name: <%= project.name %></p>
+    <p>Project Description: <%= project.description %></p>
+    <p>Funding Goal: <%= project.funding_goal %></p>
+    <p>Project Start Date: <%= project.start_date %></p>
+    <p>Project Finish Date: <%= project.end_date %></p>
+     <%= link_to "See project", project_path(project) %>
+  </div>

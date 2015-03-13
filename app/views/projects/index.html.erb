@@ -1,18 +1,11 @@
 <h1>Punchface</h1>
 <div class = "search">
-  <%= form_tag projects_path, method: :get do %>
+  <%= form_tag projects_path, method: :get, authentication: false, id:'search-form' do %>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'Search' %>
+    <%= submit_tag "Search" %>
   <% end %>  
 </div>
 
-<div class="allprojects">
-<ul><% @projects.each do |project| %>
-		<li>Project Name: <%= project.name %></li>
-		<li>Project Description: <%= project.description %></li>
-    <li>Funding Goal: <%= project.funding_goal %></li>
-    <li>Project Start Date: <%= project.start_date %></li>
-    <li>Project Finish Date: <%= project.end_date %></li>
-	   <%= link_to "See project", project_path(project) %>
-    <% end %></ul>
+<div id="projects">
+  <%= render @projects %>
 </div>

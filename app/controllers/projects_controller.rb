@@ -8,8 +8,16 @@ class ProjectsController < ApplicationController
       # The code below will produce the same results
       # Project.where("name ILIKE?", "%#{params[:search]}%")
       Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+      # Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
     else
       Project.all
+    end
+
+    respond_to do |format|
+      #renders index.html.erb
+      format.html 
+      #render index.js.erb
+      format.js
     end
   end
 
@@ -35,11 +43,11 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project =Project.find(params[:id])
+    @project = Project.find(params[:id])
   end
 
   def update
-  	@project =Project.find(params[:id])
+  	@project = Project.find(params[:id])
     if @project.update_attributes(project_params)
     redirect_to project_path(@project)
       else
@@ -57,5 +65,7 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date, rewards_attributes: [:id, :pledge_limit, :amount, :description, :_destroy])
+    end
   end
-end
+
+
