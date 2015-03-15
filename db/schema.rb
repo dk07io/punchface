@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313230644) do
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "message"
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150304213919) do
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
