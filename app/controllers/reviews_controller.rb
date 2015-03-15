@@ -10,8 +10,14 @@ class ReviewsController < ApplicationController
   def create
     @review = @project.reviews.build(review_params)
     @review.user = current_user
+
     if @review.save
-      redirect_to projects_url, notice: "Review created successfully."
+      respond_to do |format|
+        format.html do
+          redirect_to project_path(@review.project), notice: "Review created successfully."
+        end
+        format.js # renders creat.js.erb
+      end
     else
       render 'projects/show'
     end
@@ -19,7 +25,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
+    @review.destroy #does creat.js.erb
   end
 
   private 
