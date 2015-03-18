@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315170211) do
+ActiveRecord::Schema.define(version: 20150316191247) do
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
