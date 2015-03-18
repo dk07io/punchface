@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  
+
   authenticates_with_sorcery!
 
-  validates :password, length: {minimum: 3}
+  validates :password, length: {minimum: 3}, if: ->(user){user.password.length != 0 && crypted_password.blank?}
   validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence:true, on: :create
   validates :email, uniqueness: true

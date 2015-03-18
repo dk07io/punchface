@@ -30,7 +30,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to login_path, notice: 'User was successfully created.' }
+        auto_login(@user)
+        format.html { redirect_to projects_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -71,7 +72,12 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      required = params.require(:user)
+      if current_user && current_user.admin?
+        required.permit(:email, :password, :password_confirmation, :admin)
+      else
+        required.permit(:email, :password, :password_confirmation)
+      end
     end
 end
 
