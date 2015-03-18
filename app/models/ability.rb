@@ -9,8 +9,8 @@ class Ability
     if user.admin?
         can :manage, :all
     else
-        # can :manage, Project
-        can [:create, :edit, :destroy], :owned_project, user_id: user.id
+        can :manage, Project, user_id: user.id
+        # can [:create, :edit, :destroy], :owned_project, user_id: user.id
         can :read, :all
     end
     #

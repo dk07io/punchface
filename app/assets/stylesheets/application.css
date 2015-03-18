@@ -18,4 +18,6 @@
 .wrap {}
 .login {float: right }
 #header.h1 {color: white;}
-#header {background-color: #a4a4a4, }
+#header { background-color: #a4a4a4; }
+#alert { background-color: #FFC04B; border: 1px solid #FFAE18; }
+#notice { background-color: #FF5C4B; border: 1px solid #CE1400;  }

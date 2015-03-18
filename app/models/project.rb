@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+
   has_many :reviews
   has_many :pledges
   has_many :rewards
@@ -10,4 +11,5 @@ class Project < ActiveRecord::Base
   def total_pledged
     pledges.sum(:amount)    
   end
+  
 end
