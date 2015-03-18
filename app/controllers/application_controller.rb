@@ -16,4 +16,8 @@ private
   def not_authenticated 
     redirect_to login_path, alert: "Please login first"
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to projects_url, :alert => exception.message
+  end
 end
